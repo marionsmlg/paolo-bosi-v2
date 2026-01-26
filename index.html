@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paolo Bosi - Sculpteur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#A36F4A", // Brun terre cuite
+              "anthracite": "#333333", // Gris anthracite
+              "wood": "#6B4C3B", // Brun bois foncé
+              "sand": "#DCC8B2", // Beige sable
+              "background-light": "#FDFCFB", // Unified light background
+              "background-dark": "#1C1917", // Unified dark background
+              "text-primary": "#1F1F1F", 
+              "text-secondary": "#333333", // Mapped to anthracite
+              "text-primary-dark": "#E7E5E4",
+              "text-secondary-dark": "#A8A29E"
+            },
+            fontFamily: {
+              "display": ["Work Sans", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            animation: {
+              'scroll': 'scroll 40s linear infinite',
+              'fade-in': 'fadeIn 0.5s ease-out',
+              'hero-title': 'heroTitle 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+              'hero-subtitle': 'heroSubtitle 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+              'hero-line': 'heroLine 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+            },
+            keyframes: {
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              heroTitle: {
+                '0%': { opacity: '0', transform: 'translateY(40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              heroSubtitle: {
+                '0%': { opacity: '0', transform: 'translateY(20px)', filter: 'blur(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+              },
+              heroLine: {
+                 '0%': { width: '0%', opacity: '0' },
+                 '100%': { width: '3rem', opacity: '1' }
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      :root {
+        --gradient-color: #FDFCFB;
+      }
+      .dark {
+        --gradient-color: #1C1917;
+      }
+
+      /* Custom scrollbar for a cleaner look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #DCC8B2;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #A36F4A;
+      }
+
+      /* Hide scrollbar utility */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+
+      /* Organic Text Distortion Class */
+      .organic-distortion {
+        filter: url('#organic-settle');
+        will-change: filter; 
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="font-display text-text-primary dark:text-text-primary-dark transition-colors duration-300">
+    <!-- SVG Filter for Text Distortion -->
+    <svg style="width: 0; height: 0; position: absolute; pointer-events: none;">
+      <defs>
+        <filter id="organic-settle" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="1" result="noise" seed="0">
+            <animate attributeName="baseFrequency" values="0.015;0.012;0.018;0.015" dur="40s" repeatCount="indefinite" />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
