@@ -35,12 +35,30 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       
       {/* Global Background Image for Home Page */}
       {isHome ? (
-        <div className="fixed inset-0 -z-10 w-full h-screen overflow-hidden bg-background-light dark:bg-background-dark">
-          <img 
-            src="https://github.com/pearlstudio-git/paolobosifullsitemaquette/blob/main/Nouveau-projet.webp?raw=true" 
-            alt="Paolo Bosi Background" 
-            className="w-full h-full object-cover object-top"
-          />
+        <div className="absolute inset-0 -z-10 w-full h-full bg-background-light dark:bg-background-dark">
+          <picture>
+            {/* Desktop 1920px+ */}
+            <source
+              media="(min-width: 1441px)"
+              srcSet="/images/PaoloHomepage.webp"
+            />
+            {/* Laptop 769px - 1440px */}
+            <source
+              media="(min-width: 769px)"
+              srcSet="/images/PaoloHomepage 1440x3553.webp"
+            />
+            {/* Tablet 431px - 768px */}
+            <source
+              media="(min-width: 431px)"
+              srcSet="/images/PaoloHomepage 768x4043.webp"
+            />
+            {/* Mobile (430px and below) */}
+            <img
+              src="/images/PaoloHomepage 430x3553.webp"
+              alt="Paolo Bosi Background"
+              className="w-full h-full object-cover object-center"
+            />
+          </picture>
         </div>
       ) : (
         /* Global Texture Background for Other Pages */
