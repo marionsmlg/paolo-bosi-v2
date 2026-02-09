@@ -275,8 +275,8 @@ export default function Gallery() {
                     ))}
                   </div>
                 </div>
-                {/* Row 2 */}
-                <div
+                {/* Row 2 - Commenté temporairement */}
+                {/* <div
                   ref={row2Ref}
                   className="overflow-x-auto scrollbar-hide px-8"
                   style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -288,8 +288,8 @@ export default function Gallery() {
                     {displaySculptures
                       .filter((_, index) => index % 2 === 1)
                       .map((sculpture, index) => (
-                      <div 
-                        key={`${sculpture.id}-${index}-row2`} 
+                      <div
+                        key={`${sculpture.id}-${index}-row2`}
                         className="flex-shrink-0 group cursor-pointer"
                         onClick={() => setSelectedSculpture(sculpture)}
                       >
@@ -312,7 +312,7 @@ export default function Gallery() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </>
             ) : (
               /* Single row */
@@ -328,7 +328,7 @@ export default function Gallery() {
                         className="flex-shrink-0 group cursor-pointer"
                         onClick={() => setSelectedSculpture(sculpture)}
                     >
-                      <div className="flex flex-col gap-3 w-[200px] sm:w-[250px] md:w-[300px]">
+                      <div className="flex flex-col gap-3 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px]">
                         <div
                           className="aspect-[3/4] w-full bg-cover bg-center bg-no-repeat rounded-sm border border-wood/10 shadow-lg grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-[1.02]"
                           style={{ backgroundImage: `url("${sculpture.image}")` }}
